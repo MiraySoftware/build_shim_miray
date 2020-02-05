@@ -6,7 +6,7 @@ exec > >(tee -i build.log)
 exec 2>&1
 
 CERT=2017.codesigning.ev.msa.cer
-BRANCH=miray-12
+BRANCH=miray-15
 OUTNAME=shim_mirayx64
 
 
@@ -21,10 +21,14 @@ cp $CERT shim/
 
 cd shim
 export VENDOR_CERT_FILE=$CERT
+export LIBDIR=/usr/lib
+export EFI_PATH=$LIBDIR
 make
 
 cp shimx64.efi ../$OUTNAME.efi
 cd ..
+
+sha256sum -b $OUTNAME.efi > $OUTNAME.cksum
 
 cp $OUTNAME.efi BOOTX64.EFI
 lcab BOOTX64.EFI $OUTNAME.cab
