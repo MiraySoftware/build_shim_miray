@@ -14,6 +14,7 @@ rm -rf shim
 rm BOOTX64.EFI
 rm $OUTNAME.efi
 rm $OUTNAME.cab
+rm $OUTNAME.cksum
 
 
 git clone -b $BRANCH https://github.com/MiraySoftware/shim.git shim
