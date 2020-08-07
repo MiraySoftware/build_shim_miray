@@ -6,7 +6,7 @@ exec > >(tee -i build.log)
 exec 2>&1
 
 CERT=MiraySoftwareAG2020.DER.cer
-BRANCH=miray-15_2
+BRANCH=miray-15.1
 OUTNAME=shim_mirayx64
 
 
